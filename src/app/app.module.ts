@@ -20,7 +20,10 @@ import { BasketFormComponent } from './basket-form/basket-form.component';
 
 import { SeathcPipe } from './pipe/searhc.pipe';
 import { SpecialOrderComponent } from './special-order/special-order.component';
-import { TestDirective } from './test.directive';
+import { CommentsComponent } from './comments/comments.component';
+import { NewCommentsComponent } from './new-comments/new-comments.component';
+import { ShowCommentComponent } from './show-comment/show-comment.component';
+
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { TestDirective } from './test.directive';
     BasketItemComponent,
     BasketFormComponent,
     SpecialOrderComponent,
-    TestDirective
+    CommentsComponent,
+    NewCommentsComponent,
+    ShowCommentComponent,
+
   ],
   imports: [
     BrowserModule,

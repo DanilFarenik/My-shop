@@ -1,18 +1,35 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { iData } from '../basket-form/basket-form.component';
+
+import { HTTPService } from '../service/http.service';
 
 @Component({
-  selector: 'app-special-order',
-  templateUrl: './special-order.component.html',
-  styleUrls: ['./special-order.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'app-special-order',
+	templateUrl: './special-order.component.html',
+	styleUrls: ['./special-order.component.scss'],
+	providers: [HTTPService]
 })
 export class SpecialOrderComponent implements OnInit {
 
-  @Input() text!: any;
+	constructor(private HTTPService: HTTPService) { }
 
-  constructor() { }
+	ngOnInit(): void {
+	}
 
-  ngOnInit(): void {
-  }
+	flagError: boolean = false;
+
+	sendingData(event: iData) {
+		console.log(event)
+
+		this.HTTPService.postOrder(event).subscribe(
+			res => {
+				this.flagError = false;
+				console.log(res);
+			},
+			error => {
+				this.flagError = true;
+			});
+	}
 
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ProductService } from '../service/product.service';
+import { HTTPService } from '../service/http.service';
 
 import { iError } from '../error-list/error-list.component';
 import { iProductData } from '../app.component';
@@ -17,7 +17,7 @@ export interface iProduct {
 	selector: 'app-products',
 	templateUrl: './products.component.html',
 	styleUrls: ['./products.component.scss'],
-	providers: [ProductService]
+	providers: [HTTPService]
 })
 export class ProductsComponent {
 	@Output() exportProduct = new EventEmitter<iProductData>();
@@ -38,14 +38,14 @@ export class ProductsComponent {
 	};
 
 
-	constructor(private productService: ProductService) { }
+	constructor(private HTTPService: HTTPService) { }
 
 	exports(event: any) {
 		this.exportProduct.emit(event)
 	}
 
 	ngOnInit() {
-		this.productService.getPraducts().subscribe(products => {
+		this.HTTPService.getPraducts().subscribe(products => {
 			this.products = products;
 			console.log(products);
 		}, (error) => {

@@ -1,0 +1,27 @@
+.show {
+	font-family: 'Roboto', sans-serif;
+
+    padding: 10px;
+    max-width: 700px;
+    margin: 10px auto;
+
+    border-left: 5px #ff9900 solid;
+
+
+	&__box {
+        display: flex;
+
+        justify-content: space-between;
+	}
+
+	&__title {
+        text-transform: uppercase;
+        font-size: 24px;
+	}
+
+	&__text {
+        overflow: hidden;
+
+        padding: 10px 5px;
+	}
+}

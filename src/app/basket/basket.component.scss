@@ -46,6 +46,12 @@
     &__form{
         color: #000;
     }
+
+    &__error{
+        color: #ff0000;
+        text-align: center;
+        padding: 10px;
+    }
 }
 
 @media (max-width:830px){

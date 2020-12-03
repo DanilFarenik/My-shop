@@ -1,0 +1,8 @@
+<div class="new">
+    <h3 class="new__title">Коментарии</h3>
+    <input [(ngModel)]="name" minlength="3" maxlength="20" class="new__name" placeholder="Имя" type="text">
+    <p *ngIf="nameError" class="new__error">Длинна именни должна быть от 3 до 20 символов </p>
+    <textarea [(ngModel)]="text" minlength="20" maxlength="500" class="new__comments"></textarea>
+    <p *ngIf="textError" class="new__error">Длинна коментария должна быть от 20 до 500 символов</p>
+    <button (click)="validator()" class="new__submit">Отправить</button>
+</div>

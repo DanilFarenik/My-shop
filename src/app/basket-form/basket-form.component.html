@@ -29,18 +29,17 @@
     </div>
     <div class="form__box form__box_last" [ngStyle]="{display: setings ? 'block' : 'none'}">
         <div class="form__form-group form__form-group">
-            <p class="form__title form__title_finish">Подробно опишите желаемую, выпичку или изделие из теста,
-                максимально подробно опишите
-                желаемый результат.</p>
-            <textarea class="form__text" id="text" [(ngModel)]="textValue" ngModel name="text" required #text="ngModel"
+            <textarea
+                placeholder="Подробно опишите желаемую, выпичку или изделие из теста, максимально подробно опишите желаемый результат."
+                class="form__text" id="text" [(ngModel)]="textValue" ngModel name="text" required #text="ngModel"
                 minlength="10"></textarea>
             <p class="form__error" *ngIf="text.touched && !text.valid">Сообшение слишком короткое или не добавленно!</p>
         </div>
     </div>
     <div class="form__box form__box_full">
         <button class="form__submit" (click)="validator(firstName,lastName,tel,email,text)">Отправить</button>
-        <div>
-            {{textError}}
+        <div class="form__full-error" *ngIf="textError">
+            <textarea class="form__error-list" [value]="textError" disabled></textarea>
         </div>
     </div>
 </form>

@@ -1,0 +1,10 @@
+<section class="comments">
+    <app-new-comments (setComment)="pushComment($event)"></app-new-comments>
+    <div *ngIf="comments.length != 0; else noComment">
+        <app-show-comment *ngFor="let comment of comments" [comm]="comment"></app-show-comment>
+    </div>
+    <ng-template #noComment>
+        <p class="error">На даный момент нет коментариев</p>
+    </ng-template>
+
+</section>

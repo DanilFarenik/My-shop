@@ -1,11 +1,15 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+
 import { iProductData } from '../app.component';
 import { iData } from '../basket-form/basket-form.component';
+
+import { HTTPService } from '../service/http.service';
 
 @Component({
 	selector: 'app-basket',
 	templateUrl: './basket.component.html',
-	styleUrls: ['./basket.component.scss']
+	styleUrls: ['./basket.component.scss'],
+	providers: [HTTPService]
 })
 export class BasketComponent implements OnChanges, OnInit {
 	@Input() products!: Array<iProductData>;
@@ -15,9 +19,12 @@ export class BasketComponent implements OnChanges, OnInit {
 
 	flag: boolean = false;
 
+	flagErrorSend: boolean = false;
+
+
+	constructor(private HTTPService: HTTPService) { }
 	ngOnInit(): void {
 		this.fullCost();
-		console.log(this.products.length);
 
 		if (!this.products.length) {
 			this.flag = true;
@@ -48,7 +55,17 @@ export class BasketComponent implements OnChanges, OnInit {
 	sendingData(event: iData) {
 		if (!this.flag) {
 			let dataSend: [iData, Array<iProductData>] = [event, this.products];
-			console.log(dataSend);
+			this.HTTPService.postOrder(dataSend).subscribe(
+				(res: any) => {
+					this.flagErrorSend = false;
+					console.log("res", res);
+
+
+				},
+				error => {
+					this.flagErrorSend = true;
+				}
+			)
 
 
 		} else {

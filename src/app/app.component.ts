@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 export interface iProductData {
 	name: string,
@@ -12,21 +12,10 @@ export interface iProductData {
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 	title = 'My-Shop';
 
 	productsData: Array<iProductData> = this.handlerLocalStorage();
-
-	/* -------------------------------- */
-	text: any = [{ name: "lorem" }, { name: "text" }]
-
-	ngOnInit() {
-		setTimeout(() => {
-			this.text[2] = { name: "qweqweqweqweqwe" }
-		}, 3000)
-	}
-	/* -------------------------------- */
-
 
 	newProduct(event: iProductData) {
 		let flag = true;

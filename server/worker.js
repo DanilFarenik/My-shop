@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 
+const jsonParser = express.json();
 
 const data = require("./getData.js");
+
 
 const pid = process.pid;
 const port = 3000;
@@ -35,6 +37,13 @@ app.get('/card', (req, res) => {
     data.getCards()
         .then(cards => res.json(cards))
         .catch(err => res.json(err));
+})
+
+app.post('/order', jsonParser, (req, res) => {
+    console.log("body", req.body);
+    res.json("Ok")
+    // console.log(req);
+
 })
 
 

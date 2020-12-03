@@ -1,0 +1,13 @@
+.order {
+    padding: 20px 0px;
+
+	&__text {
+        padding: 10px;
+    }
+    
+    &__error-list{
+        color: #ff0000;
+        
+        padding: 10px;
+    }
+}

@@ -14,4 +14,5 @@
         </div>
     </div>
     <app-basket-form (data)="sendingData($event)" class="basket__form"></app-basket-form>
+    <p class="basket__error" *ngIf="flagErrorSend">Проблемы с доступам к серверу, попробуйте перезагрузить страницу!</p>
 </section>
