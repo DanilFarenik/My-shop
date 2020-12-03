@@ -1,0 +1,17 @@
+<section class="section-product-page" (click)="exitEvent($event)">
+    <div class="section-product-page__window">
+        <h3 class="section-product-page__title">{{product.title}}</h3>
+        <img class="section-product-page__img" [src]="product.img">
+        <div class="section-product-page__text">
+            <p>{{product.body}}</p>
+        </div>
+        <div class="section-product-page__box">
+            <button class="section-product-page__btn" (click)="validator()">add to basket</button>
+            <input type="number" class="section-product-page__input" [value]="product.minSize"
+                (blur)="inputValid($event)" [min]="product.minSize" max="99" [(ngModel)]="size">
+            <p class="section-product-page__price">
+                {{product.price * (size || product.minSize) | currency:'UAH':'symbol-narrow'}}</p>
+        </div>
+        <p class="section-product-page__error" *ngIf="flag">{{errorMessage}}</p>
+    </div>
+</section>

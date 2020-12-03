@@ -1,0 +1,64 @@
+.card {
+	font-family: 'Roboto', sans-serif;
+
+    width: 250px;
+    height: 250px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+	&__content {
+    	background-color: rgba(0, 0, 0, 0.6);
+
+        text-align: center;
+
+        height: 0px;
+
+        transition: .5s ease-in;
+
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+	&__title {
+        text-transform: uppercase;
+    }
+
+    &__title,
+    &__price {
+        color: #f5f5f5;
+        font-size: 18px;
+
+        margin: 10px;
+	}
+
+	&__btn {
+        width: 150px;
+        padding: 10px;
+        margin: 15px auto;
+
+        border:solid 1px #f5f5f5;
+        border-radius: 5px;
+
+        color: #f5f5f5;
+        background-color: #ff9900;
+
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 18px;
+
+        transition: ease-in .5s;
+    }
+    &__btn:hover{
+        background-color:#f5f5f5;
+        color:#ff9900;
+    }
+}
+
+.card:hover>div {
+    height: 250px;
+}

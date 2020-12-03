@@ -1,0 +1,152 @@
+.section-product-page {
+    background-color: rgba(0, 0, 0, 0.254);
+
+    width: 100%;
+    min-width: 320px;
+    height: 100%;
+
+    z-index: 99999999;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+		
+    font-family: 'Roboto', sans-serif;
+
+    text-align: center;
+
+	&__window {
+        display: inline-block;
+        background-color: #f5f5f5;
+        text-align: center;
+
+        margin: 40px;
+        padding: 10px;
+        height: auto;
+
+        overflow-y: auto;
+	}
+
+	&__title {
+        text-transform: uppercase;
+
+        color: #ff9900;
+
+        margin-top: 25px;
+	}
+
+	&__img {
+        margin: 10px;
+        width: 100%;
+        max-width: 250px;
+        height: 250px;
+
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.474);
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+	}
+
+	&__text {
+        display: inline-block;
+        max-width: 400px;
+        vertical-align: top;
+
+        margin: 15px 5px;
+
+        text-align: left;
+        line-height: 22px;
+    }
+    
+    &__btn{
+        transition: .5s ease-in;
+
+        padding: 10px;
+        background-color: #ff9900;
+
+        border: 1px solid #f5f5f5;
+        border-radius: 5px;
+        color: #f5f5f5;
+    }
+
+    &__btn:hover{
+        border: 1px solid #ff9900;
+        background-color: #ffffff;
+        color: #ff9900;
+    }
+
+    &__input{
+        padding: 5px;
+        width: 50px;
+        margin-left: 15px;
+    }
+
+    &__error{
+        margin: 10px;
+        margin-bottom: 20px;
+        color: #ff0000;
+    }
+
+    &__price{
+        margin: 10px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: #999999;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset 1px 1px 10px #f3faf7;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #ff9900;
+    }
+
+    ::-webkit-scrollbar-button {
+        display: none;
+    }
+}
+
+.section-product-page::after{
+    content: "x";
+
+    width: 25px;
+    height: 25px;
+
+    text-align: center;
+    line-height: 20px;
+    border-radius: 3px;
+    font-size: 32px;
+
+    position: absolute;
+    top:45px;
+    right: calc(50vw - 12.5px);
+
+    background-color: #ff9900;
+    color: #f5f5f5;
+}
+
+@media (max-width:500px){
+    .section-product-page {
+        &__window {
+            height: 100vh;
+            margin: 0;
+        }
+
+        &__title {
+            margin-top:50px;
+        }
+    }
+
+    .section-product-page::after {
+        top: 20px;
+        right: 20px;
+    }
+}
+

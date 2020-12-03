@@ -1,0 +1,51 @@
+.item {
+    display: inline-flex;
+    justify-content: space-around;
+
+    width: 100%;
+    text-align: center;
+
+
+	&__input {
+        padding: 5px;
+        width: 50px;
+    }
+    
+    &__delete{
+        margin-right: 4px;
+        padding: 0px;
+        height: 20px;
+        width: 20px;
+
+        border: 1px solid #f5f5f5;
+        border-radius: 3px;
+
+        background-color: #ff9900;
+        color: #f5f5f5;
+    }
+
+    &__td{
+        display: inline-block;
+
+        text-align: center;
+
+        width: 100px;
+        line-height: 20px;
+
+        &_sum{
+            min-width: 50px;
+        }
+    }
+
+    &__box{
+        text-align: center;
+
+        width: 90px;
+    }
+}
+
+@media(min-width:520px){
+    .item__td_title{
+        min-width: 200px;
+    }
+}

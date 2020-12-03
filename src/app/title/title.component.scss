@@ -1,0 +1,32 @@
+
+$colorHeader : #1b1c1d;
+$shade-of-yellow: #ff9900;
+
+.header-section {
+	width: 100%;
+	height: calc(100vh - 40px);
+	
+	background-image: url("../../assets/banner.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:cover;
+
+	text-transform: uppercase;
+
+	&__title {
+		color: #f5f5f5;
+		font-size: 40px;
+	}
+
+	&__box{
+		position: relative;
+		top: calc(100vh - 40px - 50%);
+		text-align: center;
+	}
+
+	&__text {
+		margin-top:20px;
+		font-weight: bold;
+		color: $shade-of-yellow ;
+	}
+}

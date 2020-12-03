@@ -1,0 +1,17 @@
+<section class="basket">
+    <div class="basket__table">
+        <div class="basket__item basket__item_header">
+            <p class="basket__title">Название товара</p>
+            <p class="basket__title">Количество</p>
+            <p class="basket__title">Сумма</p>
+        </div>
+        <app-basket-item (deleteItem)="delete($event)" (reSize)="fullCost()" class="basket__item"
+            *ngFor="let p of products" [product]="p">
+        </app-basket-item>
+        <p *ngIf="flag" class="basket__empty">На данный момент карзина пуста</p>
+        <div class="basket__item">
+            <p>Полная сумма: {{cost | currency:'UAH':'symbol-narrow':'0.0'}}</p>
+        </div>
+    </div>
+    <app-basket-form (data)="sendingData($event)" class="basket__form"></app-basket-form>
+</section>

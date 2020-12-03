@@ -1,0 +1,50 @@
+<header class="header">
+    <div class="header__logo" [ngStyle]="{
+        fontSize: dynamicFontSizeL,
+        lineHeight: dynamicHeigthL
+    }">
+        <h1><span>P</span>retzel </h1>
+        <div class="header__burger burger" (click)="flag=!flag" [ngStyle]="{
+            height: dynamicHeigthB,
+            margin: dynamicMarginB
+         }">
+            <div class="burger__line"></div>
+            <div class="burger__line"></div>
+            <div class="burger__line"></div>
+        </div>
+    </div>
+    <nav class="header__nav">
+        <ul class="nav" [ngStyle]="{
+            transform: flag ?  'scale(1, 1)' :  'scale(1, 0)',
+            maxHeight: flag ? '' :'0px' ,
+            lineHeight: dynamicHeigthL
+        }">
+            <li class="nav__item" [ngClass]="{
+                nav__item_active:activeButton===0
+            }" (click)="activeButton=0">
+                <a href="#">Home</a>
+            </li>
+            <li class="nav__item" [ngClass]="{
+                nav__item_active:activeButton===1
+            }" (click)="activeButton=1">
+                <a href="#">Services</a>
+            </li>
+            <li class="nav__item" [ngClass]="{
+                nav__item_active:activeButton===2
+            }" (click)="activeButton=2">
+                <a href="#">About</a>
+            </li>
+            <li class="nav__item" [ngClass]="{
+                nav__item_active:activeButton===3
+            }" (click)="activeButton=3">
+                <a href="#">Gallery</a>
+            </li>
+            <li class="nav__item" [ngClass]="{
+                nav__item_active:activeButton===4
+            }" (click)="activeButton=4">
+                <a href="#">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="plug"></div>

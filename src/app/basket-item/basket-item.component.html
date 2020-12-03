@@ -1,0 +1,13 @@
+<div class="item">
+    <div class="item__td item__td_title">
+        <p>{{product.name}}</p>
+    </div>
+    <div class="item__box">
+        <button (click)='remuveItem()' class="item__delete">x</button>
+        <input (blur)="validator($event.target)" (input)="post()" [(ngModel)]="product.size" type="number"
+            class="item__input">
+    </div>
+    <div class="item__td">
+        <p>{{(product.price*product.size) | currency:'UAH':'symbol-narrow':'0.0'}}</p>
+    </div>
+</div>
