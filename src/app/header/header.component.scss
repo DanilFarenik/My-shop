@@ -45,7 +45,7 @@ $shade-of-yellow: #ff9900;
 		background-color: $colorHeader;
 		
 		a{
-
+			text-transform: uppercase;
 			height: 100%;
 			padding:  10px;
 		}
@@ -96,7 +96,7 @@ $shade-of-yellow: #ff9900;
 	background-color: $shade-of-yellow;
 }
 
-@media (max-width:700px){
+@media (max-width:750px){
 	.burger {
 		display: inline-flex;
 	}

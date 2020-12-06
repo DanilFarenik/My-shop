@@ -20,8 +20,6 @@ export interface iProduct {
 	providers: [HTTPService]
 })
 export class ProductsComponent {
-	@Output() exportProduct = new EventEmitter<iProductData>();
-
 	products: any;
 
 	searchstr: string = "";
@@ -34,15 +32,12 @@ export class ProductsComponent {
 
 	errorHttpMes: iError = {
 		title: '402',
-		body: 'Проблема доступа к серверу!!'
+		body: 'Проблема доступу до сервера!!'
 	};
 
 
 	constructor(private HTTPService: HTTPService) { }
 
-	exports(event: any) {
-		this.exportProduct.emit(event)
-	}
 
 	ngOnInit() {
 		this.HTTPService.getPraducts().subscribe(products => {

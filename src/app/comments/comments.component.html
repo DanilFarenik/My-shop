@@ -3,8 +3,12 @@
     <div *ngIf="comments.length != 0; else noComment">
         <app-show-comment *ngFor="let comment of comments" [comm]="comment"></app-show-comment>
     </div>
+    <p *ngIf="flagError" class="errorServer">
+        Проблеми з доступом до сервера.
+        Спробуйте перезавантажити сторінку !!!
+    </p>
     <ng-template #noComment>
-        <p class="error">На даный момент нет коментариев</p>
+        <p class="error">На даний момент немає коментарів</p>
     </ng-template>
 
 </section>

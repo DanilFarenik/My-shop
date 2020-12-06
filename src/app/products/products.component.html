@@ -2,7 +2,7 @@
     <input type="text" class="section-products__input" placeholder="Search" [(ngModel)]="searchstr">
     <div class="section-products__container">
 
-        <app-product-page (exit)="exports($event);flag=false" *ngIf="flag" [product]="productPage"></app-product-page>
+        <app-product-page (exit)="flag=false" *ngIf="flag" [product]="productPage"></app-product-page>
         <div *ngIf="errorFlag; else errorBlock" class="section-products__box">
             <app-card class="section-products__item" *ngFor="let p of products | search: searchstr" [product]="p"
                 (click)="open(p)">

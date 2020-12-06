@@ -19,30 +19,20 @@
             maxHeight: flag ? '' :'0px' ,
             lineHeight: dynamicHeigthL
         }">
-            <li class="nav__item" [ngClass]="{
-                nav__item_active:activeButton===0
-            }" (click)="activeButton=0">
-                <a href="#">Home</a>
+            <li class="nav__item" routerLink="/title" routerLinkActive="nav__item_active">
+                <a>головна</a>
             </li>
-            <li class="nav__item" [ngClass]="{
-                nav__item_active:activeButton===1
-            }" (click)="activeButton=1">
-                <a href="#">Services</a>
+            <li class="nav__item" routerLink="/basket" routerLinkActive="nav__item_active">
+                <a>кошик</a>
             </li>
-            <li class="nav__item" [ngClass]="{
-                nav__item_active:activeButton===2
-            }" (click)="activeButton=2">
-                <a href="#">About</a>
+            <li class="nav__item" routerLink="/order" routerLinkActive="nav__item_active">
+                <a>спец замовлення</a>
             </li>
-            <li class="nav__item" [ngClass]="{
-                nav__item_active:activeButton===3
-            }" (click)="activeButton=3">
-                <a href="#">Gallery</a>
+            <li class="nav__item" routerLink="/products" routerLinkActive="nav__item_active">
+                <a>продукти</a>
             </li>
-            <li class="nav__item" [ngClass]="{
-                nav__item_active:activeButton===4
-            }" (click)="activeButton=4">
-                <a href="#">Contact Us</a>
+            <li class="nav__item" routerLink="/comments" routerLinkActive="nav__item_active">
+                <a>коментарі</a>
             </li>
         </ul>
     </nav>

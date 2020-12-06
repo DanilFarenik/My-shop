@@ -6,7 +6,7 @@ export interface iComment {
 	name: string,
 	text: string,
 	id?: number,
-	date: Date
+	date: string
 }
 
 @Component({
@@ -46,7 +46,7 @@ export class NewCommentsComponent implements OnInit {
 		this.setComment.emit({
 			name: this.name,
 			text: this.text,
-			date: new Date()
+			date: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate()
 		})
 	}
 }

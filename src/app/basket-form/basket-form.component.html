@@ -1,23 +1,23 @@
 <form class="form">
     <div class="form__box form__box_ferst">
         <div class="form__form-group">
-            <label class="form__title" for="firstName">Имя:</label>
+            <label class="form__title" for="firstName">Ім'я:</label>
             <input ngModel [(ngModel)]="firstNameValue" required name="firstName" #firstName="ngModel" id="firstName"
                 type="text" minlength="4" maxlength="15">
-            <p class="form__error" *ngIf="firstName.touched && !firstName.valid">Имя не валидно</p>
+            <p class="form__error" *ngIf="firstName.touched && !firstName.valid">Ім'я не правильне</p>
         </div>
         <div class="form__form-group">
-            <label class="form__title" for="lastName">Фамилия:</label>
+            <label class="form__title" for="lastName">Прізвище:</label>
             <input id="lastName" type="text" [(ngModel)]="lastNameValue" ngModel name="lastName" required
                 #lastName="ngModel" minlength="4" maxlength="15">
-            <p class="form__error" *ngIf="lastName.touched && !lastName.valid">Фамилия не валидна</p>
+            <p class="form__error" *ngIf="lastName.touched && !lastName.valid">Прізвище не правильне</p>
         </div>
         <div class="form__form-group">
             <label class="form__title" for="tel">Телефон:</label>
             <input id="tel" type="tel" [(ngModel)]="telValue" (input)="valTel($event)"
                 pattern="^[0-9]{3}-[0-9]{3}-[0-9]+$" minlength="12" ngModel name="tel" required #tel="ngModel"
                 placeholder="xxx-xxx-xxxx">
-            <p class="form__error" *ngIf="tel.touched && !tel.valid">Номер телефона не валиден</p>
+            <p class="form__error" *ngIf="tel.touched && !tel.valid">Номер телефон не правильний</p>
         </div>
         <div class="form__form-group">
             <label class="form__title" for="email">Email:</label>
@@ -30,14 +30,15 @@
     <div class="form__box form__box_last" [ngStyle]="{display: setings ? 'block' : 'none'}">
         <div class="form__form-group form__form-group">
             <textarea
-                placeholder="Подробно опишите желаемую, выпичку или изделие из теста, максимально подробно опишите желаемый результат."
+                placeholder="Детально описати бажану, випічку або виріб з тіста, максимально детально опишіть бажаний результат."
                 class="form__text" id="text" [(ngModel)]="textValue" ngModel name="text" required #text="ngModel"
                 minlength="10"></textarea>
-            <p class="form__error" *ngIf="text.touched && !text.valid">Сообшение слишком короткое или не добавленно!</p>
+            <p class="form__error" *ngIf="text.touched && !text.valid">Повідомлення занадто короткий або не написане!
+            </p>
         </div>
     </div>
     <div class="form__box form__box_full">
-        <button class="form__submit" (click)="validator(firstName,lastName,tel,email,text)">Отправить</button>
+        <button class="form__submit" (click)="validator(firstName,lastName,tel,email,text)">Надіслати</button>
         <div class="form__full-error" *ngIf="textError">
             <textarea class="form__error-list" [value]="textError" disabled></textarea>
         </div>

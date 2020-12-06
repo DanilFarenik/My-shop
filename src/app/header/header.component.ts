@@ -9,8 +9,6 @@ import { Component, HostListener } from "@angular/core";
 export class HeaderComponent {
     flag: boolean = window.innerWidth > 700;
 
-    activeButton: number = 0;
-
     dynamicHeigthB: string = "";
     dynamicHeigthL: string = "";
     dynamicMarginB: string = "";
@@ -44,6 +42,4 @@ export class HeaderComponent {
             this.dynamicFontSizeL = `37px`;
         }
     }
-
-
 }

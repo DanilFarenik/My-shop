@@ -1,18 +1,19 @@
 <section class="basket">
     <div class="basket__table">
         <div class="basket__item basket__item_header">
-            <p class="basket__title">Название товара</p>
-            <p class="basket__title">Количество</p>
-            <p class="basket__title">Сумма</p>
+            <p class="basket__title">Назва товару</p>
+            <p class="basket__title">Кількість</p>
+            <p class="basket__title">Cума</p>
         </div>
         <app-basket-item (deleteItem)="delete($event)" (reSize)="fullCost()" class="basket__item"
-            *ngFor="let p of products" [product]="p">
+            *ngFor="let p of ProductsService.products" [product]="p">
         </app-basket-item>
-        <p *ngIf="flag" class="basket__empty">На данный момент карзина пуста</p>
+        <p *ngIf="flag" class="basket__empty">На даний момент Карзіна порожня</p>
         <div class="basket__item">
-            <p>Полная сумма: {{cost | currency:'UAH':'symbol-narrow':'0.0'}}</p>
+            <p>Повна сума: {{cost | currency:'UAH':'symbol-narrow':'0.0'}}</p>
         </div>
     </div>
     <app-basket-form (data)="sendingData($event)" class="basket__form"></app-basket-form>
-    <p class="basket__error" *ngIf="flagErrorSend">Проблемы с доступам к серверу, попробуйте перезагрузить страницу!</p>
+    <p class="basket__error" *ngIf="flagErrorSend">Проблеми з доступам до сервера, спробуйте перезавантажити сторінку!
+    </p>
 </section>

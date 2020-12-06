@@ -24,18 +24,18 @@ export class BasketFormComponent {
 	textError: string = '';
 
 	mapName: any = {
-		firstName: "Имя: ",
-		lastName: "Фамилия: ",
+		firstName: "Ім'я: ",
+		lastName: "Прізвище: ",
 		tel: "Телефон: ",
 		email: "Email: ",
-		text: "Текст заказа: "
+		text: "Текст замовлення: "
 	}
 
 	mapError: any = {
-		minlength: "несответствует min Size; ",
-		maxlength: "несответствует max Size; ",
-		required: "поле обязательно для ввода; ",
-		pattern: "не коректно pзадано значение; "
+		minlength: "невідповідае min Size; ",
+		maxlength: "невідповідае max Size; ",
+		required: "поле обов'язкове для введення; ",
+		pattern: "некоректно задано значення; "
 	}
 
 	cookie: any = this.cookieService.cookie;
@@ -80,7 +80,7 @@ export class BasketFormComponent {
 			this.cookieService.setCookieData(parameters);
 
 			if (this.textValue) {
-				parameters["text"] = this.telValue;
+				parameters["text"] = this.textValue;
 			}
 
 			this.data.emit(parameters);

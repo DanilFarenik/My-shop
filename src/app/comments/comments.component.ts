@@ -11,7 +11,9 @@ import { iComment } from "../new-comments/new-comments.component";
 })
 export class CommentsComponent implements OnInit {
 
-	comments!: iComment[];
+	comments: iComment[] = [];
+
+	flagError: boolean = false;
 
 	constructor(
 		private httpService: HTTPService
@@ -20,16 +22,27 @@ export class CommentsComponent implements OnInit {
 	ngOnInit(): void {
 		this.httpService.getComment().subscribe(
 			res => {
+				for (let item of res) {
+					this.comments.push(item)
+				}
 
+				this.flagError = false;
 			},
 			err => {
-
+				this.flagError = true;
 			}
 		)
 	}
 
 	pushComment(data: iComment) {
-		this.comments.push(data);
+		this.httpService.postComment(data).subscribe(
+			res => {
+				this.comments.push(data);
+				this.flagError = false;
+			},
+			err => {
+				this.flagError = true;
+			}
+		)
 	}
-
 }

@@ -20,9 +20,9 @@ export class SpecialOrderComponent implements OnInit {
 	flagError: boolean = false;
 
 	sendingData(event: iData) {
-		console.log(event)
+		let arr = [event];
 
-		this.HTTPService.postOrder(event).subscribe(
+		this.HTTPService.postOrder(arr).subscribe(
 			res => {
 				this.flagError = false;
 				console.log(res);

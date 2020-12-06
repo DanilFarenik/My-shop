@@ -1,4 +1,5 @@
-.error{
+.error,
+.errorServer{
 	font-family: 'Roboto', sans-serif;
 
     color: #ff9900;
@@ -7,4 +8,9 @@
 
     text-transform: uppercase;
     text-align: center;
+    padding: 10px;
+}
+
+.errorServer{
+    color: #ff0000;
 }

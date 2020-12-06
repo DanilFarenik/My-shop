@@ -6,7 +6,7 @@
             <p>{{product.body}}</p>
         </div>
         <div class="section-product-page__box">
-            <button class="section-product-page__btn" (click)="validator()">add to basket</button>
+            <button class="section-product-page__btn" (click)="validator()">Додати в кошик</button>
             <input type="number" class="section-product-page__input" [value]="product.minSize"
                 (blur)="inputValid($event)" [min]="product.minSize" max="99" [(ngModel)]="size">
             <p class="section-product-page__price">

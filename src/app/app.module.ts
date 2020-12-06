@@ -17,12 +17,12 @@ import { ErrorListComponent } from './error-list/error-list.component';
 import { BasketComponent } from './basket/basket.component';
 import { BasketItemComponent } from './basket-item/basket-item.component';
 import { BasketFormComponent } from './basket-form/basket-form.component';
-
-import { SeathcPipe } from './pipe/searhc.pipe';
 import { SpecialOrderComponent } from './special-order/special-order.component';
 import { CommentsComponent } from './comments/comments.component';
 import { NewCommentsComponent } from './new-comments/new-comments.component';
 import { ShowCommentComponent } from './show-comment/show-comment.component';
+
+import { SeathcPipe } from './pipe/searhc.pipe';
 
 
 

@@ -19,7 +19,7 @@ export class HTTPService {
         return this.http.get(this.url + '/card');
     }
 
-    postOrder(data: [iData, Array<iProductData>] | iData) {
+    postOrder(data: [iData, Array<iProductData>] | iData[]) {
         return this.http.post(this.url + "/order", data);
     }
 

@@ -31,19 +31,35 @@ app.listen(port, () => {
     console.log(`Server started \nLink http://localhost:${port} \nPid: ${pid} `);
 });
 
-app.get('/card', (req, res) => {
-    console.log("Pid get ", pid, "\n");
+app.post('/order', jsonParser, (req, res) => {
+    data.postProducts(req.body)
+        .then(response => {
+            res.json(JSON.stringify(response))
+        })
+        .catch(err => res.json(err))
 
+    console.log("body", req.body);
+})
+
+
+app.post('/postComment', jsonParser, (req, res) => {
+    data.postComment(req.body)
+        .then(response => {
+            res.json(JSON.stringify(response))
+        })
+        .catch(err => res.json(err))
+
+    console.log("body", req.body);
+})
+
+app.get('/card', (req, res) => {
     data.getCards()
         .then(cards => res.json(cards))
         .catch(err => res.json(err));
 })
 
-app.post('/order', jsonParser, (req, res) => {
-    console.log("body", req.body);
-    res.json("Ok")
-    // console.log(req);
-
+app.get('/comment', jsonParser, (req, res) => {
+    data.getComment()
+        .then(cards => res.json(cards))
+        .catch(err => res.json(err));
 })
-
-

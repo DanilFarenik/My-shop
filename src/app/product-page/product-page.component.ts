@@ -1,14 +1,17 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { iProductData } from '../app.component';
+import { ProductsService } from "../service/products.service";
+
 
 @Component({
 	selector: 'app-product-page',
 	templateUrl: './product-page.component.html',
-	styleUrls: ['./product-page.component.scss']
+	styleUrls: ['./product-page.component.scss'],
+	providers: [ProductsService]
 })
 export class ProductPageComponent {
 	@Input() product: any;
-	@Output() exit: EventEmitter<any> = new EventEmitter<iProductData>();
+	@Output() exit = new EventEmitter();
 
 	size: number = 0;
 
@@ -16,6 +19,8 @@ export class ProductPageComponent {
 
 	flag: boolean = false;
 	flagBlur: boolean = false;
+
+	constructor(public ProductsService: ProductsService) { }
 
 	exitEvent(e: any) {
 		if (e.target.localName == "section") this.exit.emit(null);
@@ -31,12 +36,13 @@ export class ProductPageComponent {
 				minSize: this.product.minSize
 			}));
 
-			this.exit.emit({
+			this.ProductsService.newProduct({
 				name: this.product.title,
 				price: this.product.price,
 				size: this.size,
 				minSize: this.product.minSize
-			});
+			})
+			this.exit.emit();
 		}
 	}
 
@@ -44,8 +50,8 @@ export class ProductPageComponent {
 		this.flagBlur = false
 		this.flag = true;
 		this.errorMessage = `
-				Данный размер заказа недоступен!!!
-				Минимальный размер заказа ${this.product.minSize}, максимальний 99
+				Даний розмір замовлення недоступний!!!
+				Мінімальний розмір замовлення ${this.product.minSize}, максимальний 99
 			`;
 	}
 
