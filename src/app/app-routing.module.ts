@@ -9,7 +9,7 @@ import { CommentsComponent } from './comments/comments.component';
 
 
 const routes: Routes = [
-  { path: 'title', component: TitleComponent },
+  { path: '', component: TitleComponent },
   { path: 'basket', component: BasketComponent },
   { path: "order", component: SpecialOrderComponent },
   { path: "products", component: ProductsComponent },
